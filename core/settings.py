@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     # Local apps
-    'auth',
+    # 'auth',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +73,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 
 if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
